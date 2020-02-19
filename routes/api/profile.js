@@ -89,7 +89,7 @@ router.post(
             let profile = await Profile.findOne({ user: req.user.id });
 
             if (profile) {
-                // Update
+                // Update Model.find()
                 // $set: to assign value to an object’s property given the property name as a string.
                 profile = await Profile.findOneAndUpdate(
                     { user: req.user.id },
@@ -131,7 +131,7 @@ router.get('/', async (req, res) => {
 
 router.get('/user/:user_id', async (req, res) => {
     try {
-        const profile = await Profile.find({
+        const profile = await Profile.findOne({
             user: req.params.user_id
         }).populate('user',['name','avatar']);
         if(!profile) return res.status(400).json({ msg: 'Profile not found' }
