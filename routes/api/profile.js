@@ -89,7 +89,7 @@ router.post(
             let profile = await Profile.findOne({ user: req.user.id });
 
             if (profile) {
-                // Update Model.find()
+                // Update
                 // $set: to assign value to an object’s property given the property name as a string.
                 profile = await Profile.findOneAndUpdate(
                     { user: req.user.id },
